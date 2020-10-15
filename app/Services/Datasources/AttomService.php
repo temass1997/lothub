@@ -3,9 +3,11 @@
 namespace App\Services\Datasources;
 
 use App\Datasources\Attom;
+use Illuminate\Support\Facades\Cache;
 
 class AttomService
 {
+    const CACHE_TIME = 86400;
     const PAGE_SIZE = 10000;
     const LIMIT = 10000;
 
@@ -24,9 +26,22 @@ class AttomService
             'postalcode' => $zip,
             'pagesize' => $pageSize,
             'page' => 1,
+            'limit' => $limit
         ];
 
-        return $this->searchWithPaginate($data, $pageSize, $limit);
+        $cacheKey = implode(',', $data);
+
+        $results = Cache::get($cacheKey);
+
+        if (!$results) {
+            $results = $this->searchWithPaginate($data, $pageSize, $limit);
+
+            if ($results) {
+                Cache::put($cacheKey, $results, self::CACHE_TIME);
+            }
+        }
+
+        return $results;
     }
 
     /**

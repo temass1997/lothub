@@ -10,7 +10,7 @@ class SearchController
 {
     public function index(Request $request)
     {
-        return view('search');
+        return view('search.index');
     }
 
     public function searchZip(SearchRequest $request)

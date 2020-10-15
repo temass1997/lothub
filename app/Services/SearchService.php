@@ -23,17 +23,16 @@ class SearchService
 
     public function filterMultipleLots($response)
     {
+        $multipleLots = [];
         if ($response && $response['property']) {
-            $countMultiple = 0;
             foreach ($response['property'] as $id => $obj) {
                 if (isset($obj->summary->legal1) && $this->checkIsThisLotIsMultiple($obj->summary->legal1)) {
-                    $response['property'][$id]->multiple = true;
-                    $countMultiple++;
-                } else {
-                    $response['property'][$id]->multiple = false;
+                    $multipleLots[] = $obj;
                 }
             }
-            $response['status']->countMultiple = $countMultiple;
+
+            $response['status']->countElements = count($response['property']);
+            $response['property'] = $multipleLots;
         }
 
         return $response;

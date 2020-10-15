@@ -1,7 +1,14 @@
-.simple-result {
+.search-result {
     margin: 10px;
     float: left;
-    width: 50%;
+    width: 100%;
+    background-color: #eee;
+    padding: 10px;
+}
+
+.search-result:hover {
+    cursor: pointer;
+    background-color: grey;
 }
 
 .address {
@@ -16,4 +23,16 @@
 
 .multiple {
     background-color: grey;
+}
+
+.search-form div {
+    float: left;
+}
+
+.search-form__submit {
+    margin-top: 30px;
+}
+
+.simple-search-result {
+    display: none;
 }

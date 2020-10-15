@@ -4,7 +4,8 @@ let timeout;
 
 $('.js-search-form').on('submit', function(e) {
     e.preventDefault();
-    $('.js-results').html('Searching...');
+    $('.js-results').html('');
+    $('.js-total').html('Searching...');
 
     let form = $('.js-search-form');
     let request = {
@@ -25,21 +26,17 @@ async function searchAddress(request) {
     console.log(response);
 
     if (response && response.property) {
-        $('.js-results').html('');
-        $('.js-total').html('Total: ' + response.status.total + ' Multiple: ' + response.status.countMultiple + '. Got: ' + response.property.length);
+        $('.js-total').html('Total: ' + response.status.total + ' Received: ' + response.status.countElements + ' Multiple: ' + response.property.length);
         response.property.forEach(address => {
             console.log(address);
             console.log(address.summary);
             console.log(address.summary.legal1);
-            const obj = $('.js-simple-result').clone();
+            const obj = $('.js-simple-search-result').clone();
             obj.find('.address').html(address.address.oneLine);
             obj.find('.legal1').html(address.summary.legal1);
 
-            if (address.multiple) {
-                obj.addClass('multiple');
-            }
-
-            obj.removeClass('js-simple-result');
+            obj.removeClass('js-simple-search-result');
+            obj.removeClass('simple-search-result');
             $('.js-results').append(obj);
         });
     }

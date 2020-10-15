@@ -38109,7 +38109,8 @@ var _require = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.j
 var timeout;
 $('.js-search-form').on('submit', function (e) {
   e.preventDefault();
-  $('.js-results').html('Searching...');
+  $('.js-results').html('');
+  $('.js-total').html('Searching...');
   var form = $('.js-search-form');
   var request = {
     'q': form.find('[name="q"]').val(),
@@ -38139,21 +38140,16 @@ function _searchAddress() {
             console.log(response);
 
             if (response && response.property) {
-              $('.js-results').html('');
-              $('.js-total').html('Total: ' + response.status.total + ' Multiple: ' + response.status.countMultiple + '. Got: ' + response.property.length);
+              $('.js-total').html('Total: ' + response.status.total + ' Received: ' + response.status.countElements + ' Multiple: ' + response.property.length);
               response.property.forEach(function (address) {
                 console.log(address);
                 console.log(address.summary);
                 console.log(address.summary.legal1);
-                var obj = $('.js-simple-result').clone();
+                var obj = $('.js-simple-search-result').clone();
                 obj.find('.address').html(address.address.oneLine);
                 obj.find('.legal1').html(address.summary.legal1);
-
-                if (address.multiple) {
-                  obj.addClass('multiple');
-                }
-
-                obj.removeClass('js-simple-result');
+                obj.removeClass('js-simple-search-result');
+                obj.removeClass('simple-search-result');
                 $('.js-results').append(obj);
               });
             }
