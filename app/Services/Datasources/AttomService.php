@@ -26,10 +26,9 @@ class AttomService
             'postalcode' => $zip,
             'pagesize' => $pageSize,
             'page' => 1,
-            'limit' => $limit
         ];
 
-        $cacheKey = implode(',', $data);
+        $cacheKey = implode(',', $data) . ',' . $limit;
 
         $results = Cache::get($cacheKey);
 
