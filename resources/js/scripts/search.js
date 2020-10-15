@@ -39,7 +39,19 @@ async function searchAddress(request) {
             obj.removeClass('simple-search-result');
             $('.js-results').append(obj);
         });
+        initPopup();
     }
+}
+
+function initPopup() {
+    $(".search-result__item").on('click', function(event) {
+        $('.js-popup').addClass('open');
+        $('.js-popup').fadeIn();
+    });
+    $(".js-popup-close").on('click', function(event) {
+        $('.js-popup').fadeOut();
+        $('.js-popup').removeClass('open');
+    });
 }
 
 async function searchAddressRequest(request) {

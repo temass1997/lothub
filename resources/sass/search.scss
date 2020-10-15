@@ -45,6 +45,7 @@
         max-width: 900px;
     }
     &__total {
+        margin-bottom: 20px;
         padding: 8px 26px;
         height: 32px;
         background: #D5D8D8;
@@ -103,6 +104,32 @@
             background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB6SURBVHgBzZNhCoAgDIUfXSLynkF1vOwK/egi9XNNsrDYUsjAB4/J+HwwZUAm9eyVTRG3WoC73HgoFAU9VxcthB5VC6jZM3tIDZAYI3Fnw0KffxR4vRHRxVf4qF8CJshvYN+CSDlHmWwjbDj+N0XG8zel7gJ5rkMx2gF8hD6mPKVmeAAAAABJRU5ErkJggg==');
         }
     }
+
+    &__sorting {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 16px;
+        &-btn {
+            display: block;
+            cursor: pointer;
+            width: 48%;
+            max-width: 435px;
+            height: 28px;
+            background-color: #C4C4C4 !important;
+            border: none !important;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='12' viewBox='0 0 20 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.36567 0.398204L0.245065 10.4065C-0.0816885 10.7349 -0.0816885 11.2675 0.245066 11.596C0.571794 11.9244 1.10195 11.9244 1.4287 11.596L10 2.19113L18.5713 11.5951C18.898 11.9236 19.4282 11.9236 19.7549 11.5951C20.0817 11.2667 20.0817 10.7341 19.7549 10.4057L10.6343 0.397371C10.4601 0.222328 10.2292 0.147281 10.0008 0.158972C9.77161 0.148089 9.54071 0.223111 9.36567 0.398204Z' fill='black'/%3E%3C/svg%3E%0A");
+            &.--down {
+                transform: rotateX(180deg);
+            }
+        }
+    }
+}
+
+
+.search-form-email {
+    margin-bottom: 20px;
 }
 
 
@@ -132,12 +159,18 @@
         width: 95px !important;
         height: 42px !important;
         border-color: #353A40 !important;
-        background: #353A40 !important;
+        background-color: #353A40 !important;
         font-size: 14px;
         color: #D7D7D7 !important;
         &:hover {
-            background: #D7D7D7 !important;
+            background-color: #D7D7D7 !important;
             color: #353A40 !important;
+        }
+        &_email {
+            width: 68px !important;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACvSURBVHgB3dAxDgFBFMbx2Y0rbCFxAaJRKIhCrXMSV9BzB2fQ6ek1Oo1KIfRMYfxf8iYZMjaz0ch+yS+bvJ33zWaN+Ys45zq4ufRc0ZbdXDuG6GOXcN9Wz47CL5Bs0MIM98itFnM0sZbBZ4Hkgim62AfzA3qY4OyHsQKfFQosVKGzt5QVSE4YY4Bj7IDsZr7gyw976jOPvcxIw5QnN78eSC2wpnoeYcGyYonVnTrkBXrjFVM71z8nAAAAAElFTkSuQmCC') !important;
         }
     }
 }
