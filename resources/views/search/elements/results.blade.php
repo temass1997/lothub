@@ -1,19 +1,17 @@
-<div class="col-md-12">
-    <div class="row">
-        <div class="col-md-12 js-total">
-            Total:
+<div class="search-result__list">
+    <div class="js-total search-result__total">
+        Total:
+    </div>
+    <div class="js-results"></div>
+    <div class="js-simple-search-result simple-search-result search-result__item">
+        <div class="search-result__avatar"></div>
+        <div class="search-result__item-body">
+            <div class="address"></div>
+            <div class="legal1"></div>
         </div>
-        <div class="js-results"></div>
-        <div class="col-md-12 js-simple-search-result simple-search-result search-result">
-            <div class="row">
-                <div class="col-md-2">
-                    picture
-                </div>
-                <div class="col-md-10">
-                    <div class="address"></div>
-                    <div class="legal1"></div>
-                </div>
-            </div>
+        <div class="search-result__actions">
+            <span class="search-result__action --check"></span>
+            <span class="search-result__action --save"></span>
         </div>
     </div>
 </div>
