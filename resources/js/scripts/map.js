@@ -5,7 +5,7 @@ const map = {
             center: { lat: 41.876, lng: -87.624 },
         });
         const ctaLayer = new google.maps.KmlLayer({
-            url: "https://salad.a2test.com/map-sources/" + "zip" + zip + ".kml",
+            url: process.env.MIX_GOOGLE_MAPS_SOURCE_URL + "zip" + zip + ".kml",
             map: googleMap,
         });
     },
