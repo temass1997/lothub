@@ -27,22 +27,5 @@
             <span class="search-result__action --save"></span>
         </div>
     </div>
-
-    <div class="popup js-popup">
-        <div class="popup__body">
-            <div class="popup__content js-popup-content">
-                <h3 class="popup__title">Property info</h3>
-                <div class="popup__wrap">
-                    <div class="popup__photo"><img src="{{url('/images/pic.png')}}" alt=""></div>
-                    <div class="popup__map"><img src="{{url('/images/map.png')}}" alt=""></div>
-                </div>
-                <div class="popup__btn-wrap">
-                    <button type="button" class="popup__btn popup__btn-secondary js-popup-close">Close</button>               
-                    <button type="button" class="popup__btn popup__btn-primary">Save property</button>               
-                </div>
-            </div>
-            <span class="popup__close js-popup-close"></span>
-        </div>
-    </div>
-
+    @include('search.elements.popup')
 </div>

@@ -1,5 +1,7 @@
 <div class="search-result__map-wrap">
-    <div class="search-result__map"></div>
+    <div class="search-result__map" id="map">
+        
+    </div>
     <div class="search-result__info">
         <div class="search-result__title-wrap">
             <h2 class="search-result__title">Title</h2>

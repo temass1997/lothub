@@ -1,0 +1,26 @@
+const map = {
+    initGeneralMap(zip) {
+        let googleMap = new google.maps.Map(document.getElementById("map"), {
+            zoom: 13,
+            center: { lat: 41.876, lng: -87.624 },
+        });
+        const ctaLayer = new google.maps.KmlLayer({
+            url: "https://salad.a2test.com/map-sources/" + "zip" + zip + ".kml",
+            map: googleMap,
+        });
+    },
+    
+    initPopupMap(lat, lng) {
+        const position = { lat: lat, lng: lng };
+        let map = new google.maps.Map(document.getElementById("popup__map"), {
+            zoom: 13,
+            center: position,
+        });
+        new google.maps.Marker({
+            position: position,
+            map,
+        });
+    }
+}
+
+export default map;

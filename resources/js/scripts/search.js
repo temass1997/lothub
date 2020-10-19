@@ -1,8 +1,8 @@
-const { add } = require("lodash");
+import map from "./map";
 
 let timeout;
 
-$('.js-search-form').on('submit', function(e) {
+$('.js-search-form').submit(function( e ) {
     e.preventDefault();
     $('.js-results').html('');
     $('.js-total').html('Searching...');
@@ -14,11 +14,13 @@ $('.js-search-form').on('submit', function(e) {
         'limit': form.find('[name="limit"]').val(),
     }
 
+    let zip = form.find('[name="q"]').val();
+    map.initGeneralMap(zip);
+
     console.log(request);
 
     searchAddress(request)
 });
-
 
 async function searchAddress(request) {
     
@@ -37,6 +39,10 @@ async function searchAddress(request) {
 
             obj.removeClass('js-simple-search-result');
             obj.removeClass('simple-search-result');
+
+            obj.data('lat', address.location.latitude);
+            obj.data('lng', address.location.longitude);
+
             $('.js-results').append(obj);
         });
         initPopup();
@@ -45,6 +51,7 @@ async function searchAddress(request) {
 
 function initPopup() {
     $(".search-result__item").on('click', function(event) {
+        fillPopup($(this));
         $('.js-popup').addClass('open');
         $('.js-popup').fadeIn();
     });
@@ -52,6 +59,12 @@ function initPopup() {
         $('.js-popup').fadeOut();
         $('.js-popup').removeClass('open');
     });
+}
+
+function fillPopup(obj) {
+    const lat = obj.data('lat') * 1;
+    const lng = obj.data('lng') * 1;
+    map.initPopupMap(lat, lng);
 }
 
 async function searchAddressRequest(request) {
