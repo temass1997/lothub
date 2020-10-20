@@ -38104,6 +38104,7 @@ var map = {
         lng: -87.624
       }
     });
+    console.log("https://salad.a2test.com/map-sources/");
     var ctaLayer = new google.maps.KmlLayer({
       url: "https://salad.a2test.com/map-sources/" + "zip" + zip + ".kml",
       map: googleMap
@@ -38226,6 +38227,10 @@ function fillPopup(obj) {
   var lat = obj.data('lat') * 1;
   var lng = obj.data('lng') * 1;
   _map__WEBPACK_IMPORTED_MODULE_1__["default"].initPopupMap(lat, lng);
+  var address = obj.find('.address').html();
+  var lot = obj.find('.legal1').html();
+  $('.js-popup-address').html(address);
+  $('.js-popup-lot').html(lot);
 }
 
 function searchAddressRequest(_x2) {

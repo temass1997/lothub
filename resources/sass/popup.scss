@@ -40,8 +40,14 @@
         margin-right: 30px;
         max-width: 420px;
     }
+    &__info {
+        width: calc(50% - 30px);
+        margin-right: 30px;
+        max-width: 420px;
+    }
     &__map {
         width: 50%;
+        height: 320px;
     }
     &__title {
         margin-bottom: 20px;

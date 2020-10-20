@@ -3,7 +3,14 @@
         <div class="popup__content js-popup-content">
             <h3 class="popup__title">Property info</h3>
             <div class="popup__wrap">
-                <div class="popup__photo"><img src="{{url('/images/pic.png')}}" alt=""></div>
+                <div class="popup__info">
+                    <div class="popup__info__address">
+                        <b>Address: </b><i class="js-popup-address"></i>
+                    </div>
+                    <div class="popup__info__lot">
+                        <b>Lot: </b><i class="js-popup-lot"></i>
+                    </div>
+                </div>
                 <div class="popup__map" id="popup__map"></div>
             </div>
             <div class="popup__btn-wrap">

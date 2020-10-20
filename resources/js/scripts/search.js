@@ -65,6 +65,10 @@ function fillPopup(obj) {
     const lat = obj.data('lat') * 1;
     const lng = obj.data('lng') * 1;
     map.initPopupMap(lat, lng);
+    const address = obj.find('.address').html();
+    const lot = obj.find('.legal1').html();
+    $('.js-popup-address').html(address);
+    $('.js-popup-lot').html(lot);
 }
 
 async function searchAddressRequest(request) {

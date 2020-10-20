@@ -142,6 +142,15 @@
     &__wrap {
         display: flex;
     }
+    &__form-group {
+        width: 30%;
+        padding-right: 25px;
+    }
+    &__submit {
+        padding-top: 28px;
+        padding-right: 0px;
+        width: 10%;
+    }
     &__input {
         background: #FFFFFF !important;
         border: 1px solid #A5A5A5 !important;
@@ -156,7 +165,7 @@
     &__btn {
         flex-shrink: 0;
         border-radius: 0 !important;
-        width: 95px !important;
+        width: 100% !important;
         height: 42px !important;
         border-color: #353A40 !important;
         background-color: #353A40 !important;
