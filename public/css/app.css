@@ -294,6 +294,10 @@
   max-width: 420px;
 }
 
+.popup__info div {
+  margin: 15px 0;
+}
+
 .popup__map {
   width: 50%;
   height: 320px;
@@ -301,8 +305,8 @@
 
 .popup__title {
   margin-bottom: 20px;
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 800;
+  font-size: 20px;
   line-height: 19px;
   color: #000000;
 }

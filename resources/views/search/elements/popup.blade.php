@@ -5,10 +5,12 @@
             <div class="popup__wrap">
                 <div class="popup__info">
                     <div class="popup__info__address">
-                        <b>Address: </b><i class="js-popup-address"></i>
+                        <h5><b>Address: </b></h5>
+                        <i class="js-popup-address"></i>
                     </div>
                     <div class="popup__info__lot">
-                        <b>Lot: </b><i class="js-popup-lot"></i>
+                        <h5><b>Short Legal Description: </b></h5>
+                        <i class="js-popup-lot"></i>
                     </div>
                 </div>
                 <div class="popup__map" id="popup__map"></div>

@@ -44,6 +44,10 @@
         width: calc(50% - 30px);
         margin-right: 30px;
         max-width: 420px;
+
+        & div {
+            margin: 15px 0;
+        }
     }
     &__map {
         width: 50%;
@@ -51,8 +55,8 @@
     }
     &__title {
         margin-bottom: 20px;
-        font-weight: 500;
-        font-size: 16px;
+        font-weight: 800;
+        font-size: 20px;
         line-height: 19px;
         color: #000000;
     }
