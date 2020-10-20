@@ -26,8 +26,12 @@ class SearchService
         $multipleLots = [];
         if ($response && $response['property']) {
             foreach ($response['property'] as $id => $obj) {
-                if (isset($obj->summary->legal1) && $this->checkIsThisLotIsMultiple($obj->summary->legal1)) {
-                    $multipleLots[] = $obj;
+                $propertyType = $obj->summary->propsubtype ?? '';
+
+                if (stripos($propertyType, 'residential') !== false) {
+                    if (isset($obj->summary->legal1) && $this->checkIsThisLotIsMultiple($obj->summary->legal1)) {
+                        $multipleLots[] = $obj;
+                    }
                 }
             }
 
