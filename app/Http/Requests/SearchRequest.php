@@ -25,8 +25,8 @@ class SearchRequest extends FormRequest
     {
         return [
             'q' => 'required',
-            'pageSize' => 'integer',
-            'limit' => 'integer',
+            'pageSize' => 'integer|nullable',
+            'limit' => 'integer|nullable',
         ];
     }
 }

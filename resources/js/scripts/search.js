@@ -17,22 +17,16 @@ $('.js-search-form').submit(function( e ) {
     let zip = form.find('[name="q"]').val();
     map.initGeneralMap(zip);
 
-    console.log(request);
-
     searchAddress(request)
 });
 
 async function searchAddress(request) {
     
     const response = await searchAddressRequest(request);
-    console.log(response);
 
     if (response && response.property) {
         $('.js-total').html('Total: ' + response.status.total + ' Received: ' + response.status.countElements + ' Multiple: ' + response.property.length);
         response.property.forEach(address => {
-            console.log(address);
-            console.log(address.summary);
-            console.log(address.summary.legal1);
             const obj = $('.js-simple-search-result').clone();
             obj.find('.address').html(address.address.oneLine);
             obj.find('.legal1').html(address.summary.legal1);

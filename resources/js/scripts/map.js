@@ -4,7 +4,6 @@ const map = {
             zoom: 13,
             center: { lat: 41.876, lng: -87.624 },
         });
-        console.log(process.env.MIX_GOOGLE_MAPS_SOURCE_URL);
         const ctaLayer = new google.maps.KmlLayer({
             url: process.env.MIX_GOOGLE_MAPS_SOURCE_URL + "zip" + zip + ".kml",
             map: googleMap,

@@ -7,21 +7,33 @@ use Illuminate\Http\Request;
 
 class SearchService
 {
-    public function searchZip(Request $request)
+    /**
+     * Search By Zip code in attom
+     *
+     * @param Strign $zip
+     * @param Strign $pageSize
+     * @param Strign $limit
+     *
+     * @return Json
+     */
+    public function searchZip($zip, $pageSize = null, $limit = null)
     {
-        $zip = $request->q;
-        $pageSize = $request->pageSize ?? null;
-        $limit = $request->limit ?? null;
-
         $attomService = new AttomService();
         $response = $attomService->searchZip($zip, $pageSize, $limit);
 
-        $filteredResults = $this->filterMultipleLots($response);
+        $filteredResults = $this->processMultipleLots($response);
 
         return $filteredResults;
     }
-
-    public function filterMultipleLots($response)
+    
+    /**
+     * Process property array and return only multiple lots
+     *
+     * @param array $response
+     *
+     * @return array
+     */
+    public function processMultipleLots($response)
     {
         $multipleLots = [];
         if ($response && $response['property']) {
@@ -42,6 +54,13 @@ class SearchService
         return $response;
     }
 
+    /**
+     * Check this slot multiple or not
+     *
+     * @param String $lot
+     *
+     * @return bool
+     */
     public function checkIsThisLotIsMultiple($lot)
     {
         if (substr_count(strtolower($lot), 'lot') > 1) {
